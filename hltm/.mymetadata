@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hltm"
+  id="myeclipse.1425173092691"
+  context-root="/hltm"
+  j2ee-spec="6.0"
+  archive="hltm.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

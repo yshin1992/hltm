@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+		PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+		"http://ibatis.apache/org.dtd/sql-map-2.dtd">
+	<sqlMap namespace="index">
+		<typeAlias alias="href" type="com.bean.Href"/>
+		<select id="leading" resultClass="href">
+			select _title,_address from _href;
+		</select>
+	
+		<!-- 查询用户名密码是否正确 -->
+		<typeAlias alias="user" type="com.bean.User"/>
+		<resultMap id="userResult" class="user">
+			<result property="name" column="_name"/>
+			<result property="pass" column="_pass"/> 
+		</resultMap>
+		<select id="validateUser" resultMap="userResult" parameterClass="user">
+			select _name,_pass from _manager where _name=#name# and _pass=#pass#
+		</select>
+		
+		<!-- 查询地区 -->
+		<select id="queryXone" resultClass="string">
+			select zone from _zone;
+		</select>
+		
+		<!-- 新增 -->
+		<insert id="create_anm" parameterClass="com.bean.Animation">
+			insert into _animation(name,time,zone,details,roles,cast,staff) values(
+				#name#,#time#,#zone#,#details#,#roles#,#cast#,#staff#);
+		</insert>
+		
+		<!-- 查询 -->
+		<select id="query_anm" resultClass="com.bean.Animation">
+			select name,time,zone,details,roles,cast,staff from _animation limit 1,1; 
+		</select>
+	</sqlMap>

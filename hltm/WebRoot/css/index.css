@@ -1,0 +1,148 @@
+/*首页上的css样式*/
+.ulstyle {
+	background-color: #2095D7;
+}
+
+.ulstyle a {
+	color: #fff;
+}
+
+/*背景颜色渐变*/
+#search {
+	height: 50px;
+	vertical-align: middle;
+	background-color: #2095D7;
+	padding-top: 8px;
+}
+
+.tiplist {
+	color: red;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.linear {
+	FILTER: progid :         DXImageTransform.Microsoft.Gradient (      
+		  gradientType =         0, startColorStr =         #E3E3E3,
+		endColorStr = 
+		    
+		  white );
+	/*IE 6,7,8*/
+	background: -ms-linear-gradient(top, #E3E3E3, #fff); /*IE 10*/
+	background: -moz-linear-gradient(top, #E3E3E3, #fff); /*火狐*/
+	background: -webkit-gradient(linear, 0%, 0%, 0%, 100%, from(#E3E3E3),
+		to(#fff) ); /*safari 4-5,Chrome 1-9*/
+	background: -webkit-linear-gradient(top, #E3E3E3, #fff);
+	/*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, #fff, #0000ff); /*Opera 11.10+*/
+}
+
+.btncenter {
+	vertical-align: middle;
+	padding-top: 3px;
+}
+
+.tablefont {
+	font-size: 10px;
+}
+
+.hr1 {
+	border: 1px #e3e3e3 dashed;
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.ulnav {
+	background-color: #F0F0F0;
+	color: lightgray;
+	font-weight: bold;
+}
+
+.ulnav li {
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+	border-left: 1px solid lightgray;
+}
+
+.ulnav li a.moveon {
+	background: -ms-linear-gradient(top, #E3E3E3, #fff); /*IE 10*/
+	background: -moz-linear-gradient(top, #E3E3E3, #fff); /*火狐*/
+	background: -webkit-gradient(linear, 0%, 0%, 0%, 100%, from(#E3E3E3),
+		to(#fff) ); /*safari 4-5,Chrome 1-9*/
+	background: -webkit-linear-gradient(top, #E3E3E3, #fff);
+	/*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, #fff, #0000ff); /*Opera 11.10+*/
+	color: red;
+}
+
+div.img {
+	text-align: center;
+	margin-top: 10px;
+}
+
+div.desc {
+	font-weight: normal;
+	font-size: 12px;
+	margin: 10px 5px 10px 5px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.listTitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: darkgray;
+	padding: 5px 0px;
+}
+
+.listItem {
+	font-size: 13px;
+	padding: 5px 0px;
+}
+
+.btn-list {
+	height: 20px;
+	width: 23px;
+	padding: 0px 2px;
+}
+
+.alphaTitle {
+	font-size: 13px;
+	color: red;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.listTable {
+	border: 0px;
+	width: 100%;
+	font-size: 12px;
+}
+
+.listTable tr td {
+	height: 20px;
+	padding: 3px;
+	width: 20%;
+	overflow: hidden;
+}
+
+.listImage {
+	margin: 5px;
+}
+
+/*需要将超出div长度的字符隐藏起来的样式*/
+.divhidden {
+	height: 20px;
+	overflow: hidden;
+	float: left;
+	font-size: 13px;
+}
+
+/*字母索引的按钮样式*/
+.btnalphaList {
+	width: 28px;
+	padding: 2px;
+	margin:2px;
+}
