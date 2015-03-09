@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="col-md-11 col-md-offset-1">
+    <div class="col-md-10 col-md-offset-1">
 				<h2 class="h2">
 					基本信息
 				</h2>
@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<label class="control-label col-md-4">
 						发行时间：
 					</label>
-					<div class="col-md-8" id="ani_time">${requestScope.animation.time }
+					<div class="col-md-8" id="ani_time"><fmt:formatDate value="${requestScope.animation.time }" pattern="yyyy-MM-dd"/>
 					</div>
 				</div>
 				<div class="col-md-4 form-group">
@@ -64,12 +64,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 
-		<div class="col-md-11 col-md-offset-1">
+		<div class="col-md-10 col-md-offset-1">
+				<h2 class="h2">
+					图片
+				</h2>
+				<div class="col-md-12">
+					<img src="${requestScope.animation.imgpath }"/>
+				</div>
+			</div>
+		<div class="col-md-10 col-md-offset-1">
 				<h2 class="h2">
 					简介
 				</h2>
 			</div>
-		<div class="col-md-11 col-md-offset-1">
+		<div class="col-md-10 col-md-offset-1">
 				<h3 class="h3">
 					详细介绍
 				</h3>
@@ -79,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 			</div>
-			<div class="col-md-11 col-md-offset-1">
+			<div class="col-md-10 col-md-offset-1">
 				<h3 class="h3">
 					人物介绍
 				</h3>
@@ -88,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				</div>
 			</div>
-			<div class="col-md-11 col-md-offset-1">
+			<div class="col-md-10 col-md-offset-1">
 				<h3 class="h3">
 					CAST
 				</h3>
@@ -97,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				</div>
 			</div>
-			<div class="col-md-11 col-md-offset-1">
+			<div class="col-md-10 col-md-offset-1">
 				<h3 class="h3">
 					STAFF
 				</h3>

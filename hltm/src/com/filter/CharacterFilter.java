@@ -36,7 +36,8 @@ public class CharacterFilter implements Filter {
 		String encoding=config.getInitParameter("encoding");
 		request.setCharacterEncoding(encoding);
 		chain.doFilter(request, response);
-		response.setCharacterEncoding(encoding);
+		//response.setCharacterEncoding(encoding);
+		response.setContentType("text/html;charset=UTF-8");
 	}
 
 	/**

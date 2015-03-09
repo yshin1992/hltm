@@ -7,7 +7,7 @@
 %>
 <%@ taglib uri="http://www.mysite.org/mytablib" prefix="pe"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
 		<base href="<%=basePath%>">
@@ -38,9 +38,7 @@
 	</head>
 
 	<body>
-	<c:if test="${result eq 'success'}"><h1>添加成功!</h1></c:if>
-	<c:if test="${result  ne 'success'}"><h1>添加失败!</h1></c:if>
-		<form class="form-horizontal">
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="col-md-11 col-md-offset-1">
 				<h2 class="h2">
 					基本信息
@@ -78,6 +76,14 @@
 				</div>
 			</div>
 
+			<div class="col-md-10 col-md-offset-1">
+				<h2 class="h2">
+					图片
+				</h2>
+				<div class="col-md-12">
+					<input type="file" name="file"/>
+				</div>
+			</div>
 		<div class="col-md-11 col-md-offset-1">
 				<h2 class="h2">
 					简介
@@ -125,7 +131,7 @@
 				</div>
 			</div>
 			<div class="col-md-offset-1 col-md-11">
-				<button onclick="doIt();">提交</button>
+				<button class="btn btn-primary" onclick="doIt();">提交</button>
 			</div>
 			<input type="hidden" name="ani_details" id="details_hid"/>
 			<input type="hidden" name="ani_roles" id="rols_hid"/>

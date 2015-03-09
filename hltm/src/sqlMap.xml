@@ -9,7 +9,7 @@
 		</select>
 	
 		<!-- 查询用户名密码是否正确 -->
-		<typeAlias alias="user" type="com.bean.User"/>
+		<typeAlias alias="user" type="com.bean.User"></typeAlias>
 		<resultMap id="userResult" class="user">
 			<result property="name" column="_name"/>
 			<result property="pass" column="_pass"/> 
@@ -25,12 +25,18 @@
 		
 		<!-- 新增 -->
 		<insert id="create_anm" parameterClass="com.bean.Animation">
-			insert into _animation(name,time,zone,details,roles,cast,staff) values(
-				#name#,#time#,#zone#,#details#,#roles#,#cast#,#staff#);
+			insert into _animation(name,time,zone,imgpath,details,roles,cast,staff) values(
+				#name#,#time#,#zone#,#imgpath#,#details#,#roles#,#cast#,#staff#);
 		</insert>
 		
 		<!-- 查询 -->
-		<select id="query_anm" resultClass="com.bean.Animation">
-			select name,time,zone,details,roles,cast,staff from _animation limit 1,1; 
+		<select id="query_anm" resultClass="com.bean.Animation" parameterClass="int">
+			select name,time,zone,imgpath,details,roles,cast,staff from _animation where aiid=#aiid#; 
+		</select>
+		
+		<!-- 动漫列表 -->
+		<!-- 先查询0-50条记录，分页待定 -->
+		<select id="query_anmList" resultClass="com.bean.Animation">
+			select aiid,name,imgpath from _animation limit 0,50; 
 		</select>
 	</sqlMap>

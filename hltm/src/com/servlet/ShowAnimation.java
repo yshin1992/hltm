@@ -15,7 +15,8 @@ public class ShowAnimation extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Animation anima=AnimationDao.query();
+		int aiid=Integer.parseInt(request.getParameter("index"));
+		Animation anima=AnimationDao.query(aiid);
 		request.setAttribute("animation", anima);
 		request.getRequestDispatcher("/WEB-INF/content/show_animationinfo.jsp").forward(request, response);
 	}

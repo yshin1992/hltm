@@ -16,6 +16,16 @@ public class Animation {
 	private String cast;
 	
 	private String staff;
+	
+	private String imgpath;
+
+	public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
+	}
 
 	public String getName() {
 		return name;
@@ -73,14 +83,24 @@ public class Animation {
 		this.staff = staff;
 	}
 	
+	private int aiid;
 	
+	public int getAiid() {
+		return aiid;
+	}
+
+	public void setAiid(int aiid) {
+		this.aiid = aiid;
+	}
+
 	public Animation(){}
 	
 	
-	public Animation(String name,Date time,String zone,String details,String roles,String staff,String cast){
+	public Animation(String name,Date time,String zone,String imagePath,String details,String roles,String staff,String cast){
 		this.name=name;
 		this.time=time;
 		this.zone=zone;
+		this.imgpath=imagePath;
 		this.details=details;
 		this.roles=roles;
 		this.staff=staff;

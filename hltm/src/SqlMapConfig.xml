@@ -20,7 +20,7 @@
 			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver"/>
 			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost/hltm"/>
 			<property name="JDBC.Username" value="root"/>
-			<property name="JDBC.Password" value=""/>
+			<property name="JDBC.Password" value="yshin1992"/>
 		</dataSource>
 	</transactionManager>
 	<sqlMap resource="sqlMap.xml"/>

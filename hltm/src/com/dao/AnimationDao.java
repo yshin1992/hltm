@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.bean.Animation;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -16,15 +18,27 @@ public class AnimationDao {
 		return false;
 	}
 	
-	public static Animation query(){
+	public static Animation query(int aiid){
 		try{
 			SqlMapClient sqlMap=InitSqlMap.getSqlMap();
-			Animation ani=(Animation)sqlMap.queryForObject("index.query_anm", null);
+			Animation ani=(Animation)sqlMap.queryForObject("index.query_anm", aiid);
 			System.out.println(ani.getName());
 			return ani;
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return null;
+	}
+	
+	public static List<Animation> getAnimationList(){
+		try{
+			SqlMapClient sqlMap=InitSqlMap.getSqlMap();
+			List<Animation> list=sqlMap.queryForList("index.query_anmList", null);
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 }
