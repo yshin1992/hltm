@@ -6,13 +6,14 @@
 			+ path + "/";
 %>
 <%@ taglib uri="http://www.mysite.org/mytablib" prefix="pe"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
 		<base href="<%=basePath%>">
 
-		<title>添加信息页面</title>
+		<title>编辑信息页面</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -38,7 +39,10 @@
 	</head>
 
 	<body>
+	<pe:leadhead/>
 		<form class="form-horizontal" method="post" enctype="multipart/form-data">
+			<!-- aiid 隐藏域 -->
+			<input type="hidden" name="ani_aiid" value="${animation.aiid }" id="aiid_hid"/>
 			<div class="col-md-11 col-md-offset-1">
 				<h2 class="h2">
 					基本信息
@@ -52,7 +56,7 @@
 					</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control" placeholder="名称"
-							name="ani_name" />
+							name="ani_name" value="${animation.name }"/>
 					</div>
 				</div>
 				<div class="col-md-4 form-group">
@@ -61,7 +65,7 @@
 					</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control" placeholder="例:1992-10-02"
-							name="ani_time" />
+							name="ani_time" value="<fmt:formatDate value='${animation.time }' pattern='yyyy-MM-dd'/>" />
 					</div>
 				</div>
 				<div class="col-md-4 form-group">
@@ -81,6 +85,10 @@
 					图片
 				</h2>
 				<div class="col-md-12">
+				<c:if test="${animation.name ne null}">
+						<img src="${animation.imgpath }"/>
+						<br/><h3>重新选择：</h3>
+				</c:if>
 					<input type="file" name="file"/>
 				</div>
 			</div>
@@ -95,7 +103,7 @@
 				</h3>
 				<div class="col-md-12">
 				<div id="area">
-					<textarea rows="15" cols="100" id="details"></textarea>
+					<textarea rows="15" cols="100" id="details">${animation.details } </textarea>
 				</div>
 				</div>
 
@@ -106,7 +114,7 @@
 				</h3>
 				<div class="col-md-12">
 				<div id="area">
-					<textarea rows="15" cols="100" id="roles"></textarea>
+					<textarea rows="15" cols="100" id="roles">${animation.roles }</textarea>
 				</div>
 				</div>
 			</div>
@@ -116,7 +124,7 @@
 				</h3>
 				<div class="col-md-12">
 				<div id="area">
-					<textarea rows="15" cols="100" id="cast"></textarea>
+					<textarea rows="15" cols="100" id="cast">${animation.cast }</textarea>
 				</div>
 				</div>
 			</div>
@@ -126,7 +134,7 @@
 				</h3>
 				<div class="col-md-12">
 				<div id="area">
-					<textarea rows="15" cols="100" id="staff"></textarea>
+					<textarea rows="15" cols="100" id="staff">${animation.staff }</textarea>
 				</div>
 				</div>
 			</div>
@@ -137,6 +145,7 @@
 			<input type="hidden" name="ani_roles" id="rols_hid"/>
 			<input type="hidden" name="ani_staff" id="staff_hid"/>
 			<input type="hidden" name="ani_cast" id="cast_hid"/>
+			
 		</form>
 		
 <script type="text/javascript" src="js/nicEdit.js"></script> <script type="text/javascript">
@@ -156,7 +165,12 @@ function doIt(){
 	$("#roles_hid").val(editor[1].getContent());
 	$("#cast_hid").val(editor[2].getContent());
 	$("#staff_hid").val(editor[3].getContent());
+	<c:if test="${animation.name eq null}">
 	$("form").attr("action","manager/animation_add");
+	</c:if>
+	<c:if test="${animation.name ne null}">
+	$("form").attr("action","manager/updateRes");
+	</c:if>
 	$("form").submit();
 }
 </script>

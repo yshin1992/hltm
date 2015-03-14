@@ -60,26 +60,16 @@ public class AddAnimation extends HttpServlet {
 		Animation animation=new Animation(name,date,zone,path,details,roles,cast,staff);
 		if(AnimationDao.create(animation)){
 			request.setAttribute("animation", animation);
-			request.getRequestDispatcher("../WEB-INF/content/show_animationinfo.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/content/show_animationinfo.jsp").forward(request, response);
 		}else{
 			//创建失败时，返回新增界面
-			request.getRequestDispatcher("../WEB-INF/content/add_baseinfo.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/content/edit_baseinfo.jsp").forward(request, response);
 		}
 	}else{
-			request.getRequestDispatcher("../WEB-INF/content/add_baseinfo.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/content/edit_baseinfo.jsp").forward(request, response);
 		}
 	}
 
-	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		this.doGet(request, response);

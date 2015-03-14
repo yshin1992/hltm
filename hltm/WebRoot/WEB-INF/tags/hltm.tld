@@ -50,4 +50,12 @@
 		<body-content>empty</body-content>
 	</tag>
 	
+	<tag>
+		<!-- 定义标签名 -->
+		<name>leadhead</name>
+		<!-- 定义标签处理类 -->
+		<tag-class>com.manager.tag.LeadingTag</tag-class>
+		<!-- 定义标签体为空 -->
+		<body-content>empty</body-content>
+	</tag>
 </taglib>

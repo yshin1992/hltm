@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		if(session.getAttribute("user")!=null){
-			request.getRequestDispatcher("WEB-INF/content/manage_index.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/content/manage_index.jsp").forward(request, response);
 			return ;
 		}
 		String name=request.getParameter("name");
@@ -40,10 +40,10 @@ public class Login extends HttpServlet {
 			User user=new User(name,pass);
 			if(UserDao.validate(user)){
 				request.getSession().setAttribute("user", user);
-				request.getRequestDispatcher("WEB-INF/content/manage_index.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/content/manage_index.jsp").forward(request, response);
 			}
 		}else{
-			request.getRequestDispatcher("WEB-INF/content/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/content/login.jsp").forward(request, response);
 		}
 	}
 

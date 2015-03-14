@@ -30,10 +30,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-
+	<%@ taglib uri="http://www.mysite.org/mytablib" prefix="pe" %>
   </head>
   
   <body>
+  <pe:leadhead/>
     <div class="col-md-10 col-md-offset-1">
 				<h2 class="h2">
 					基本信息

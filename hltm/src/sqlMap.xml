@@ -23,20 +23,45 @@
 			select zone from _zone;
 		</select>
 		
+		<typeAlias alias="animation" type="com.bean.Animation"/>
 		<!-- 新增 -->
-		<insert id="create_anm" parameterClass="com.bean.Animation">
+		<insert id="create_anm" parameterClass="animation">
 			insert into _animation(name,time,zone,imgpath,details,roles,cast,staff) values(
 				#name#,#time#,#zone#,#imgpath#,#details#,#roles#,#cast#,#staff#);
 		</insert>
 		
 		<!-- 查询 -->
-		<select id="query_anm" resultClass="com.bean.Animation" parameterClass="int">
-			select name,time,zone,imgpath,details,roles,cast,staff from _animation where aiid=#aiid#; 
+		<select id="query_anm" resultClass="animation" parameterClass="int">
+			select aiid,name,time,zone,imgpath,details,roles,cast,staff from _animation where aiid=#aiid#; 
 		</select>
 		
 		<!-- 动漫列表 -->
 		<!-- 先查询0-50条记录，分页待定 -->
-		<select id="query_anmList" resultClass="com.bean.Animation">
+		<select id="query_anmList" resultClass="animation">
 			select aiid,name,imgpath from _animation limit 0,50; 
 		</select>
+		
+		<!-- 更新 -->
+		<update id="update_anm" parameterClass="animation">
+			update _animation set name=#name#,time=#time#,zone=#zone#,details=#details#,roles=#roles#,
+		cast=#cast#,staff=#staff# 
+			<dynamic prepend=" , ">
+				<isNotNull>
+					imgpath=#imgpath# 
+				</isNotNull>
+			</dynamic>
+			where aiid=#aiid#;
+		</update>
+		
+		<!-- 删除 -->
+		<delete id="delete_anm" parameterClass="list">
+			delete from _animation where aiid in 
+			<dynamic>
+				<isNotNull>
+					<iterate open="(" close=")" conjunction=",">
+						#aiids[]#
+					</iterate>
+				</isNotNull>
+			</dynamic>
+		</delete>
 	</sqlMap>

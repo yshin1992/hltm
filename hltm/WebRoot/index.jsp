@@ -30,8 +30,7 @@
 
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="css/index.css"/>
-	</head>
+</head>
 
 	<body>
 		<div class="container">

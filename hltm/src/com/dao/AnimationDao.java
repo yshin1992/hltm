@@ -41,4 +41,27 @@ public class AnimationDao {
 		
 		return null;
 	}
+	
+	public static boolean updateAnimation(Animation animation){
+		try{
+			SqlMapClient sqlMap=InitSqlMap.getSqlMap();
+			if(sqlMap.update("index.update_anm", animation)>0)
+				return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public static boolean deleteAnimation(List aiids){
+		try{
+			SqlMapClient sqlMap=InitSqlMap.getSqlMap();
+			if(sqlMap.delete("index.delete_anm", aiids)>0)
+				return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

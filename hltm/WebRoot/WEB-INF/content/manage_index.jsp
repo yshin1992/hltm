@@ -43,8 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<ul class="nav nav-pills nav-stacked">
     		<li class="active"><a href="manager/animation_add">增加</a></li>
     		<li class="active"><a href="manager/anmList">查看</a></li>
-    		<li class="active"><a href="manager/animation_add">更新</a></li>
-    		<li class="active"><a href="manager/animation_add">删除</a></li>
+    		<li class="active"><a href="manager/animation_update">更新</a></li>
+    		<li class="active"><a href="manager/animation_delete">删除</a></li>
     	</ul>
     </div>
     <hr/>

@@ -43,7 +43,7 @@ public class LogFilter implements Filter {
 		HttpSession session=req.getSession();
 		User user=(User)session.getAttribute("user");
 		if(user==null){
-			req.getRequestDispatcher(config.getServletContext().getContextPath()+"/login").forward(request, response);
+			req.getRequestDispatcher("/WEB-INF/content/login.jsp").forward(request, response);
 		}
 		else{
 			chain.doFilter(request, response);
